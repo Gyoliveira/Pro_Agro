@@ -45,6 +45,7 @@ module.exports = {
       backgroundImage: {
         'home_page': "url('/img/bgHome.png')",
         'home_shape': "url('/img/coisa.svg')",
+        'home_banner': "url('/img/home_banner.png')",
         'login_page': "url('/img/test2.png')",
         'my_bg_lateral_image' : "url('/img/lateralBar.png')",
         'bg_profile' : "url('/img/bgProfile.png')",
