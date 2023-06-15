@@ -13,7 +13,7 @@ module.exports = {
     },
     extend: {
       margin: {
-        '30vh': '30vh',
+        '30vh': '20vh',
         '15p': '15%',
       },
       colors: {

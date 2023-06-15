@@ -1,24 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
 
+import Header from "./components/Header";
+
 export default function Home() {
   return (
     <main className="flex w-full h-full  flex-col ">
       <div className="flex flex-col min-h-screen bg-home_page bg-cover bg-no-repeat bg-center ">
-        {/* HEADER */}
-        <div className="flex flex-row justify-around absolute w-full h-28 items-center text-text-light">
-          <h1 className="text-xl">Pro Agro</h1>
-          <div className="flex flex-row justify-around w-1/4">
-            <h1>Inicio</h1>
-            <h1>Serviços</h1>
-            <h1>Sobre Nós</h1>
-          </div>
-
-          <button className="bg-gradient-to-r from-primary-default to-primary-light py-2 px-8 rounded-full">
-            <Link href="/pages/login">Login</Link>
-          </button>
-        </div>
-        {/* HEADER */}
+        <Header />
 
         {/* CONTENT */}
         <div className="flex flex-col justify-center items-center text-text-light mx-15p mt-30vh">
