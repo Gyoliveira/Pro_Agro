@@ -6,7 +6,7 @@ export default function Home() {
     <main className="flex w-full h-full  flex-col ">
       <div className="flex flex-col min-h-screen bg-home_page bg-cover bg-no-repeat bg-center ">
         {/* HEADER */}
-        <div className="flex flex-row  justify-around w-full h-28 items-center text-text-light">
+        <div className="flex flex-row justify-around absolute w-full h-28 items-center text-text-light">
           <h1 className="text-xl">Pro Agro</h1>
           <div className="flex flex-row justify-around w-1/4">
             <h1>Inicio</h1>
@@ -21,7 +21,7 @@ export default function Home() {
         {/* HEADER */}
 
         {/* CONTENT */}
-        <div className="flex flex-col justify-center items-center text-text-light mx-15p mt-12">
+        <div className="flex flex-col justify-center items-center text-text-light mx-15p mt-30vh">
           <h1 className="mb-5 ">Nossa missão</h1>
           <h1 className="my-5 text-4xl text-justify">
             A Pro Agro é uma iniciativa voltada para o agronegócio
@@ -40,9 +40,18 @@ export default function Home() {
             assim a qualidade de vida e a segurança alimentar de suas famílias e
             comunidades.
           </h1>
-          <button className="bg-gradient-to-r from-primary-default to-primary-light py-2 px-8 rounded-full mt-16">
+          <button className="z-10 absolute bg-gradient-to-r from-primary-default to-primary-light py-2 px-8 rounded-full bottom-48">
             <Link href="/pages/login">Saiba Mais</Link>
           </button>
+        </div>
+        <div className="z-0 w-full absolute bottom-0">
+          <Image
+              src="/img/coisa.svg"
+              width={1920}
+              height={475}
+              className="object-cover"
+              alt={`alt`}
+            />
         </div>
         {/* CONTENT */}
       </div>

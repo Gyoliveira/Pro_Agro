@@ -13,6 +13,7 @@ module.exports = {
     },
     extend: {
       margin: {
+        '30vh': '30vh',
         '15p': '15%',
       },
       colors: {
@@ -43,6 +44,7 @@ module.exports = {
       },
       backgroundImage: {
         'home_page': "url('/img/bgHome.png')",
+        'home_shape': "url('/img/coisa.svg')",
         'login_page': "url('/img/test2.png')",
         'my_bg_lateral_image' : "url('/img/lateralBar.png')",
         'bg_profile' : "url('/img/bgProfile.png')",
