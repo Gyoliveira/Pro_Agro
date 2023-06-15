@@ -42,6 +42,7 @@ module.exports = {
         'warning': '#BC6C25',
       },
       backgroundImage: {
+        'home_page': "url('/img/bgHome.png')",
         'login_page': "url('/img/test2.png')",
         'my_bg_lateral_image' : "url('/img/lateralBar.png')",
         'bg_profile' : "url('/img/bgProfile.png')",
