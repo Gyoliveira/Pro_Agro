@@ -16,7 +16,7 @@ module.exports = {
         '95vw': '95vw'
       },
       margin: {
-        '30vh': '10vh',
+        '30vh': '5vh',
         '15p': '15%',
         '90vh' : '90vh',
       },
@@ -43,6 +43,7 @@ module.exports = {
         'text': {
           'default': '#000',
           'light': '#fff',
+          'focus': '#D9AC55',
         },
         'warning': '#BC6C25',
       },
@@ -57,6 +58,12 @@ module.exports = {
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
+      fontFamily: {
+        'playfair_regular': ['PlayfairRegular'],
+        'playfair_bold': ['PlayfairDisplay-Bold'],
+        'kooka_regular': ['KookaRegular'],
+        'kooka_bold': ['KookaBold'],
+      }
     },
   },
   plugins: [],
