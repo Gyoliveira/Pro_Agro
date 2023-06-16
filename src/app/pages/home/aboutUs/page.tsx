@@ -22,7 +22,7 @@ export default function AboutUs() {
             <h1>abluebaleahiafnnaoaboadknojadn</h1>
           </div>          
         </div>
-        <button className="bg-gradient-to-r from-primary-default to-primary-light py-2 px-8 rounded-full">
+        <button className="bg-gradient-to-r from-primary-default to-primary-light py-2 px-8 rounded-full shadow-lg transform active:scale-95 transition-transform">
             <Link href="">Trabalhe conosco!</Link>
           </button>
       </div>

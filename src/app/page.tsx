@@ -29,8 +29,8 @@ export default function Home() {
             assim a qualidade de vida e a segurança alimentar de suas famílias e
             comunidades.
           </h1>
-          <button className="z-10 absolute bg-gradient-to-r from-primary-default to-primary-light py-2 px-8 rounded-full bottom-48">
-            <Link href="/pages/login">Saiba Mais</Link>
+          <button className="z-10 absolute bg-gradient-to-r from-primary-default to-primary-light py-2 px-8 rounded-full bottom-48 shadow-lg transform active:scale-95 transition-transform">
+            <Link href="">Saiba Mais</Link>
           </button>
         </div>
 
@@ -129,36 +129,43 @@ export default function Home() {
                 width={305}
                 height={250}
                 alt={"homeGrid"}
+                className="transition duration-300 ease-in-out hover:scale-110 hover:rounded-lg"
               />
               <Image
                 src={"/img/homeGrid/image2.png"}
                 width={305}
                 height={250}
                 alt={"homeGrid"}
+                className="transition duration-300 ease-in-out hover:scale-110 hover:rounded-lg"
+
               />
               <Image
                 src={"/img/homeGrid/image3.png"}
                 width={305}
                 height={250}
                 alt={"homeGrid"}
+                className="transition duration-300 ease-in-out hover:scale-110 hover:rounded-lg"
               />
               <Image
                 src={"/img/homeGrid/image4.png"}
                 width={305}
                 height={250}
                 alt={"homeGrid"}
+                className="transition duration-300 ease-in-out hover:scale-110 hover:rounded-lg"
               />
               <Image
                 src={"/img/homeGrid/image5.png"}
                 width={305}
                 height={250}
                 alt={"homeGrid"}
+                className="transition duration-300 ease-in-out hover:scale-110 hover:rounded-lg"
               />
               <Image
                 src={"/img/homeGrid/image6.png"}
                 width={305}
                 height={250}
                 alt={"homeGrid"}
+                className="transition duration-300 ease-in-out hover:scale-110 hover:rounded-lg"
               />
             </div>
           </div>
@@ -168,8 +175,8 @@ export default function Home() {
 
       <div className="flex flex-col justify-center items-center w-full bg-home_banner bg-cover bg-no-repeat bg-center py-24 mb-16 text-text-light">
         <h1 className="mb-10 text-2xl font-semibold ">Nós trabalhamos com o que amamos</h1>
-        <button className="bg-gradient-to-r from-primary-default to-primary-light py-2 px-8 rounded-full">
-          <Link href="/pages/login">Trabalhe Conosco</Link>
+        <button className="bg-gradient-to-r from-primary-default to-primary-light py-2 px-8 rounded-full shadow-lg transform active:scale-95 transition-transform">
+          <Link href="">Trabalhe Conosco</Link>
         </button>
       </div>
     </main>

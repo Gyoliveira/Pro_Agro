@@ -26,6 +26,7 @@
     "yup": "^1.2.0"
   },
   "devDependencies": {
-    "@types/react-toggle": "^4.0.3"
+    "@types/react-toggle": "^4.0.3",
+    "next-router-mock": "^0.9.6"
   }
 }
