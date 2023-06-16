@@ -4,8 +4,8 @@ import Header from '../../../components/Header'
 
 export default function AboutUs() {
   return (
-    <main className="flex min-h-screen flex-col w-full">
-      <div className='bg-red-600 flex justify-center flex-col items-center'>
+    <main className="flex w-full h-full flex-col">
+      <div className='bg-red-600 flex justify-center items-center flex-col '>
         <Header />
         <h1 className='text-3xl mb-3'>
           Um pouco mais sobre nós
@@ -13,7 +13,7 @@ export default function AboutUs() {
         <h1>
           Crescemos juntos. De um jeito colaborativo. De um jeito agro!
         </h1>
-        <div className='bg-primary-light w-full h-30 flex flex-row mx-90vh'>
+        <div className='flex flex-row bg-primary-light w-95vw h-30'>
           <div>
             <h1>abluebaleahiafnnaoaboadknojadn</h1>
           </div>

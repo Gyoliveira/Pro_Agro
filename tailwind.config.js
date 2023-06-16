@@ -12,6 +12,9 @@ module.exports = {
       '4/5': '80vw',
     },
     extend: {
+      width: {
+        '95vw': '95vw'
+      },
       margin: {
         '30vh': '10vh',
         '15p': '15%',
