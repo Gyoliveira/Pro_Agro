@@ -10,7 +10,7 @@ export default function Home() {
         <Header />
 
         {/* CONTENT */}
-        <div className="flex flex-col justify-center items-center text-text-light mx-15p mt-30vh">
+        <div className="flex flex-col justify-center items-center text-text-light mx-15p ">
           <h1 className="mb-5 ">Nossa missão</h1>
           <h1 className="my-5 text-4xl text-justify">
             A Pro Agro é uma iniciativa voltada para o agronegócio

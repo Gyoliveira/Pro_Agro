@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Header() {
   return (
-    <div className="flex flex-row justify-around absolute w-full h-28 items-center text-text-light">
+    <div className="flex flex-row justify-around relative w-full h-28 items-center text-text-light mb-30vh">
       <h1 className="text-xl">Pro Agro</h1>
       <div className="flex flex-row justify-around w-1/4">
         <Link href="/">

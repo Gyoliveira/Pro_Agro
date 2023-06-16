@@ -13,8 +13,9 @@ module.exports = {
     },
     extend: {
       margin: {
-        '30vh': '20vh',
+        '30vh': '10vh',
         '15p': '15%',
+        '90vh' : '90vh',
       },
       colors: {
         'transparent': 'transparent',
