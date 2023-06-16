@@ -15,7 +15,7 @@ export default function AboutUs() {
         </h1>
         <div className='flex flex-row bg-primary-light w-95vw h-60vh mt-14 rounded-full'>
           <div className='flex justify-center items-center flex-col w-1/2 p-6 px-24'>
-            <h1 className='text-3xl mb-3 text-primary-dark'>O início</h1>
+            <h1 className='text-3xl mb-3 text-primary-dark pb-9'>O início</h1>
             <p className='text-md'>
               O Pro Agro nasceu como um projeto universitário com o propósito de apoiar agricultores e promover a sustentabilidade.  
             </p>
@@ -24,20 +24,23 @@ export default function AboutUs() {
             <p/>
             </p>
           </div>
-          <div className='bg-primary-default w-1 h-24'/>          
+          <div className='bg-primary-default flex justify-center items-center flex-row w-1 h-56  mt-16vh'/>          
           <div className='flex justify-center items-center flex-col w-1/2 p-6'>
-            <h1 className='text-3xl mb-3 text-primary-dark'>O que fazemos?</h1>
-            <p className='text-md'>    
+            <h1 className='text-3xl mb-3 text-primary-dark pb-9'>O que fazemos?</h1>
+            <p className='text-md mr-8 ml-4'>
               Nossos serviços abrangem uma ampla gama de áreas, incluindo consultoria, assistência técnica, gestão de propriedades rurais, produção de insumos e comercialização de produtos agrícolas. 
             </p>
-            <p className='text-md'>
+            <p className='text-md mr-8 ml-4'>
             Trabalhamos em estreita colaboração com os agricultores, compreendendo suas necessidades específicas e oferecendo soluções personalizadas para impulsionar sua produtividade e rentabilidade.
             </p>
           </div>          
         </div>
-        <button className="bg-gradient-to-r from-primary-default to-primary-light py-2 px-8 rounded-full">
+        <div className='absolute align-bottom'>
+          <button className="bg-gradient-to-r from-primary-default to-primary-light py-2 px-8 rounded-full">
             <Link href="">Trabalhe conosco!</Link>
           </button>
+        </div>
+        
       </div>
       
     </main>

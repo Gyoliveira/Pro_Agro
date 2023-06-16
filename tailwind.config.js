@@ -22,6 +22,7 @@ module.exports = {
         '30vh': '10vh',
         '15p': '15%',
         '90vh' : '90vh',
+        '16vh' : '16vh',
       },
       colors: {
         'transparent': 'transparent',
