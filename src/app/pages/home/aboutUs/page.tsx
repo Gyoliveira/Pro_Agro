@@ -36,7 +36,7 @@ export default function AboutUs() {
           </div>          
         </div>
         <div className='pt-10 pb-10 relative mr-auto pl-10'>
-          <button className="bg-gradient-to-r from-primary-default to-primary-light py-2 px-8 rounded-full">
+        <button className="bg-gradient-to-r from-primary-default to-primary-light py-2 px-8 rounded-full shadow-lg transform active:scale-95 transition-transform">
             <Link href="">Trabalhe conosco!</Link>
           </button>
         </div>

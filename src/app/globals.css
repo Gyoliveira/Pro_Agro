@@ -2,6 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "KookaRegular";
+  src: url("/public/fonts/Kooka-Regular.ttf");
+}
+
+@font-face {
+  font-family: "KookaBold";
+  src: url("/public/fonts/Kooka-Bold.ttf");
+}
+
+
+@font-face {
+  font-family: "PlayfairRegular";
+  src: url("/public/fonts/PlayfairDisplay-Regular.otf");
+}
+
+@font-face {
+  font-family: "PlayfairBold";
+  src: url("/public/fonts/PlayfairDisplay-Bold.otf");
+}
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
