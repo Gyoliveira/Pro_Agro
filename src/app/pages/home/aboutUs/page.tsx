@@ -24,7 +24,7 @@ export default function AboutUs() {
             <p/>
             </p>
           </div>
-          <div className='bg-primary-default flex justify-center items-center flex-row w-1 h-56  mt-16vh'/>          
+          <div className='bg-primary-default flex justify-center items-center flex-row w-1 h-56 mt-16vh mb-52'/>          
           <div className='flex justify-center items-center flex-col w-1/2 p-6'>
             <h1 className='text-3xl mb-3 text-primary-dark pb-9'>O que fazemos?</h1>
             <p className='text-md mr-8 ml-4'>
@@ -35,12 +35,24 @@ export default function AboutUs() {
             </p>
           </div>          
         </div>
-        <div className='absolute align-bottom'>
+        <div className='pt-10 pb-10 relative mr-auto pl-10'>
           <button className="bg-gradient-to-r from-primary-default to-primary-light py-2 px-8 rounded-full">
             <Link href="">Trabalhe conosco!</Link>
           </button>
         </div>
         
+      </div>
+
+      <div className='flex justify-center items-center flex-col text-text-default'>
+        <h1 className='text-4xl mb-3 mt-20 '>
+          Nossas motivações!
+        </h1>
+        <div className='bg-primary-light w-2/4  p-20 rounded-2xl mb-20 bg-opacity-50'>
+        <h1 className='text-primary-default'>
+          Embora tenhamos começado como um trabalho de faculdade, o Pro Agro cresceu além das nossas expectativas. Hoje, estamos orgulhosos de ser uma iniciativa estabelecida, com uma sólida base de clientes e um histórico comprovado de sucesso. Continuamos a nos inspirar na nossa jornada inicial e nos esforçamos para criar um futuro agrícola mais próspero e sustentável. <br />
+          O Pro Agro é a prova de que uma ideia, nascida em um trabalho de faculdade, pode se transformar em uma iniciativa bem-sucedida. Estamos ansiosos para continuar crescendo e fazendo a diferença no agronegócio, ao mesmo tempo em que aprendemos e nos adaptamos às demandas e desafios em constante evolução do setor.
+        </h1>
+        </div>
       </div>
       
     </main>
