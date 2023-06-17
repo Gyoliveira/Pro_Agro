@@ -1,3 +1,4 @@
+import Footer from "@/app/components/Footer";
 import Image from "next/image";
 import Link from "next/link";
 import Header from "../../../components/Header";
@@ -68,6 +69,7 @@ export default function AboutUs() {
           </div>
         </div>
       </div>
+      <Footer />
     </main>
   );
 }
