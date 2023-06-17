@@ -3,7 +3,7 @@ import { useState } from "react";
 import Link from "next/link";
 
 import Input from "../../components/Input";
-import FormCreateAccount from "./api/form";
+import { FormCreateAccount } from "./api/form";
 
 export default function Login() {
   const [createAccount, setCreateAccount] = useState(false);
@@ -35,7 +35,7 @@ export default function Login() {
   return (
     <main className="flex flex-row static min-h-screen bg-login_page bg-cover bg-no-repeat bg-center">
       <div
-        className={`absolute min-w-1/2 h-screen bg-gray-800 transition duration-200  ${
+        className={`absolute min-w-1/2 h-screen bg-slate-950 transition duration-200  ${
           createAccount && "translate-x-full"
         }`}
       />
@@ -90,7 +90,7 @@ export default function Login() {
       <div
         className={
           createAccount
-            ? "z-10 flex flex-col justify-center px-16 bg-gray-800 min-w-1/2 text-text-light transition duration-200"
+            ? "z-10 flex flex-col justify-center px-16 bg-slate-950 min-w-1/2 text-text-light transition duration-200"
             : "min-w-1/2"
         }
       >
