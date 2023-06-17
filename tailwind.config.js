@@ -15,10 +15,14 @@ module.exports = {
       width: {
         '95vw': '95vw'
       },
+      height: {
+        '60vh' : '60vh'
+      },
       margin: {
         '30vh': '5vh',
         '15p': '15%',
         '90vh' : '90vh',
+        '16vh' : '16vh',
       },
       colors: {
         'transparent': 'transparent',
