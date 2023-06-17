@@ -4,55 +4,118 @@ import Toggle from "../components/Toggle";
 import { useFormik, Form, Formik, useFormikContext } from "formik";
 import * as yup from "yup";
 import FormField from "../components/FormField";
+import { redirect, useRouter } from "next/navigation";
 
 interface Account {
   email: string;
   password: string;
-  confirmPassword: string;
+  passwordConfirm: string;
 }
 
-export default function FormCreateAccount() {
+enum EAccountType {
+  freelancer = "FREELANCER",
+  enterprise = "ENTERPRISE",
+}
+
+export function FormLogin() {
+  return (
+    <Formik
+      validateOnChange={false}
+      validateOnBlur={false}
+      initialValues={{
+        email: "",
+        password: "",
+      }}
+      onSubmit={async (values) => {
+        // createAccount(values);
+      }}
+      validationSchema={yup.object({
+        email: yup.string().email().required("Email obrigatorio"),
+        password: yup.string().trim().required("Senha obrigatorio"),
+      })}
+    >
+      {({ errors, touched }) => (
+        <Form>
+          <FormField
+            placeholder="Email"
+            type="email"
+            name="email"
+            id="email"
+            error={errors.email}
+          />
+          <FormField
+            placeholder="Senha"
+            type="password"
+            name="password"
+            id="password"
+            error={errors.password}
+          />
+        </Form>
+      )}
+    </Formik>
+  );
+}
+
+export function FormCreateAccount() {
+  const { push } = useRouter();
+
   const [isToggle, setIsToggle] = useState(false);
 
   const [enabled, setEnabled] = useState(false);
-  const [typeAccount, setTypeAccount] = useState("freelancer");
+  const [typeAccount, setTypeAccount] = useState<EAccountType>(
+    EAccountType.freelancer
+  );
 
   const handleTypeAccount = () => {
     setEnabled(!enabled);
+
+    if (enabled) {
+      setTypeAccount(EAccountType.enterprise);
+    } else {
+      setTypeAccount(EAccountType.freelancer);
+    }
   };
 
   const createAccount = async (data: Account) => {
     try {
-      Object.assign(data, { typeAccount: typeAccount });
-      const JSONdata = JSON.stringify(data);
-      console.log(JSONdata);
+      const dataBody = {
+        email: data.email,
+        password: data.password,
+        typeAccount: typeAccount,
+      };
+
+      const JSONdata = JSON.stringify(dataBody);
+
       const endpoint = "https://viacep.com.br/ws/38413354/json/";
 
       const options = {
-        method: "POST",
+        method: "GET",
         headers: {
           "Content-Type": "application/json",
         },
         // body: JSONdata,
       };
 
-      const response = await fetch(endpoint, options);
+      // const response = await fetch(endpoint, options);
 
-      const result = await response.json();
-      alert(JSONdata);
-    } catch (err) {}
+      // const result = await response.json();
+      push("/pages/profile");
+    } catch (err) {
+      alert("deu n mano");
+    }
   };
 
   return (
     <Formik
+      validateOnChange={false}
+      validateOnBlur={false}
       initialValues={{
         email: "",
         password: "",
         passwordConfirm: "",
       }}
       onSubmit={async (values) => {
-        // createAccount(values);
-        alert(JSON.stringify(values));
+        createAccount(values);
       }}
       validationSchema={yup.object({
         email: yup.string().email().required("Email obrigatorio"),
@@ -62,29 +125,37 @@ export default function FormCreateAccount() {
     >
       {({ errors, touched }) => (
         <Form>
-          <FormField placeholder="Email" type="email" name="email" id="email" />
+          <FormField
+            placeholder="Email"
+            type="email"
+            name="email"
+            id="email"
+            error={errors.email}
+          />
           <FormField
             placeholder="Senha"
             type="password"
             name="password"
             id="password"
+            error={errors.password}
           />
           <FormField
             placeholder="Confirmação de senha"
             type="password"
             name="passwordConfirm"
             id="passwordConfirm"
+            error={errors.passwordConfirm}
           />
 
           <div className="flex flex-row justify-center items-center my-6 -ml-2">
             <span
-              className={`mr-5 text-sm font-medium ${enabled && "opacity-10"}`}
+              className={`mr-5 text-sm font-medium ${enabled && "opacity-30"}`}
             >
               Sou Freelancer
             </span>
             <Toggle enabled={enabled} selectType={handleTypeAccount} />
             <span
-              className={`ml-5 text-sm font-medium ${!enabled && "opacity-10"}`}
+              className={`ml-5 text-sm font-medium ${!enabled && "opacity-30"}`}
             >
               Sou Empresa
             </span>
