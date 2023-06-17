@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import Link from "next/link";
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
 
@@ -15,7 +16,9 @@ export default function Header() {
 
   return (
     <div className="flex flex-row justify-around relative w-full h-28 items-center text-text-light mb-30vh">
-      <h1 className="text-xl">Pro Agro</h1>
+      <div >
+        <Image src="/img/logo/logoLight.svg" width={50} height={50} alt="logo"/>
+      </div>
       <div className="flex flex-row justify-around w-1/4">
         <Link href="/">
           <h1 className={`${router === "/" && routerSelect} ${routerHover}`}>

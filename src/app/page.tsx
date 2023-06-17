@@ -49,7 +49,7 @@ export default function Home() {
       {/* fim da primeira pagina */}
 
       {/* CONTENT 2 */}
-      <div className="flex flex-col bg-white mb-14">
+      <div className="flex flex-col bg-white mb-14 bg-home_leaf bg-contain bg-no-repeat">
         <div className="flex flex-col mx-15p">
           <h1 className="flex justify-center text-3xl mb-24 font-semibold font-playfair_bold">
             Bem vindo a
@@ -174,7 +174,7 @@ export default function Home() {
       </div>
       {/* CONTENT 2 */}
 
-      <div className="flex flex-col justify-center items-center w-full bg-home_banner bg-cover bg-no-repeat bg-center py-24 mb-16 text-text-light">
+      <div className="flex flex-col justify-center items-center w-full bg-home_banner bg-cover bg-no-repeat bg-center py-24 text-text-light">
         <h1 className="mb-10 text-2xl font-semibold font-playfair_regular">
           Nós trabalhamos com o que amamos
         </h1>
@@ -183,28 +183,36 @@ export default function Home() {
         </button>
       </div>
 
-      <div className= "flex flex-col mx-15p">
-        <h1 className="mb-10 text-2xl font-semibold font-playfair_regular text-center">
-          Conheça nossa <span className="text-primary-default ml-1">CEO</span> 
-        </h1>
-        <h1 className="mb-10 text-lg font-medium font-playfair_regular">
-          Isabel - CEO da Pro Agro: empreendedora experiente e apaixonada pelo
-          agronegócio. Ela assumiu a liderança da Pro Agro há 5 anos, após ter
-          trabalhado em diversas empresas do setor em cargos de alta gerência.
-          Isabel é uma líder inspiradora, que sabe como motivar sua equipe e
-          alinhar todos os esforços da empresa com os valores e objetivos da Pro
-          Agro. Isabel é uma defensora da sustentabilidade ambiental e social e
-          está sempre empenhada em minimizar os impactos das atividades
-          agrícolas no meio ambiente e nas comunidades locais. Além disso, ela é
-          uma grande defensora da equidade de gênero no mercado de trabalho e
-          busca promover a diversidade e inclusão dentro da empresa.
-        </h1>
+      <div className=" bg-home_bgCeo bg-cover bg-no-repeat bg-center">
+        <div className="flex flex-row flex-1 h-80vh mx-15p">
+          <div className="flex flex-1 bg-home_ceo bg-contain bg-no-repeat bg-center" />
+          <div className="flex flex-col w-2/3 py-20 font-playfair_regular">
+            <h1 className="mb-10 text-3xl font-semibold text-center">
+              Conheça nossa{" "}
+              <span className="text-primary-default ml-1">CEO</span>
+            </h1>
+            <h1 className="mb-10 text-lg text-right font-medium text-primary-focused">
+              Isabel - CEO da Pro Agro: empreendedora experiente e apaixonada
+              pelo agronegócio. Ela assumiu a liderança da Pro Agro há 5 anos,
+              após ter trabalhado em diversas empresas do setor em cargos de
+              alta gerência. Isabel é uma líder inspiradora, que sabe como
+              motivar sua equipe e alinhar todos os esforços da empresa com os
+              valores e objetivos da Pro Agro. Isabel é uma defensora da
+              sustentabilidade ambiental e social e está sempre empenhada em
+              minimizar os impactos das atividades agrícolas no meio ambiente e
+              nas comunidades locais. Além disso, ela é uma grande defensora da
+              equidade de gênero no mercado de trabalho e busca promover a
+              diversidade e inclusão dentro da empresa.
+            </h1>
+          </div>
+        </div>
       </div>
-      <div>
-        <h1 className="mb-10 text-lg font-semibold font-playfair_regular text-text-focus">
+
+      <div className="flex flex-col justify-center items-center px-15p pl-50p h-55vh bg-home_banner2 bg-conver bg-no-repeat bg-center">
+        <h1 className="mb-10 text-3xl font-semibold font-playfair_regular text-text-focus text-justify">
           Transformando a agricultura com soluções inteligentes e sustentáveis.
         </h1>
-        <button className="bg-gradient-to-r from-primary-default to-primary-light py-2 px-8 rounded-full shadow-lg transform active:scale-95 transition-transform font-playfair_regular text-text-light">
+        <button className="mt-24 bg-gradient-to-r from-primary-default to-primary-light py-2 px-8 rounded-full shadow-lg transform active:scale-95 transition-transform font-playfair_regular text-text-light">
           <Link href="">Trabalhe Conosco</Link>
         </button>
       </div>

@@ -76,7 +76,7 @@ export function FormCreateAccount() {
     }
   };
 
-  const createAccount = async (data: Account) => {
+  const handleSubmit = async (data: Account) => {
     try {
       const dataBody = {
         email: data.email,
@@ -115,7 +115,7 @@ export function FormCreateAccount() {
         passwordConfirm: "",
       }}
       onSubmit={async (values) => {
-        createAccount(values);
+        handleSubmit(values);
       }}
       validationSchema={yup.object({
         email: yup.string().email().required("Email obrigatorio"),
