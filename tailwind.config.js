@@ -13,6 +13,8 @@ module.exports = {
     },
     extend: {
       width: {
+        '5vw': '5vw',
+        '15vw': '15vw',
         '95vw': '95vw'
       },
       height: {
