@@ -17,8 +17,8 @@ interface Account {
 }
 
 enum EAccountType {
-  freelancer = "FREELANCER",
-  enterprise = "ENTERPRISE",
+  freelancer = 0,
+  enterprise = 1,
 }
 
 export function FormLogin() {
@@ -93,12 +93,6 @@ export function FormCreateAccount() {
 
   const handleTypeAccount = () => {
     setEnabled(!enabled);
-
-    if (enabled) {
-      setTypeAccount(EAccountType.enterprise);
-    } else {
-      setTypeAccount(EAccountType.freelancer);
-    }
   };
 
   const handleSubmit = async (data: Account) => {
@@ -106,10 +100,12 @@ export function FormCreateAccount() {
       const dataBody = {
         email: data.email,
         password: data.password,
-        typeAccount: typeAccount,
+        typeAccount: !enabled ? 0 : 1,
       };
 
+      
       const JSONdata = JSON.stringify(dataBody);
+      console.log(JSONdata)
 
       const response = await fetch("http://localhost:8080", {
         method: "POST",
