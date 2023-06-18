@@ -82,8 +82,12 @@ export default function Profile() {
         <div>
           <Selection icon="home" name="home" />
           <Selection icon="user" name="perfil" />
-          <Selection icon="place" name="localização" />
-          <Selection icon="work" name="empresa" />
+          <Link href="/pages/profile/location">
+            <Selection icon="place" name="localização" />
+          </Link>
+          <Link href="/pages/profile/company">
+            <Selection icon="work" name="empresa" />
+          </Link>
         </div>
 
         <div className="absolute bottom-5">
