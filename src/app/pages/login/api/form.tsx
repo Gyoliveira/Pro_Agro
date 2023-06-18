@@ -6,6 +6,10 @@ import * as yup from "yup";
 import FormField from "../components/FormField";
 import { redirect, useRouter } from "next/navigation";
 
+interface Login {
+  email: string,
+  password: string,
+}
 interface Account {
   email: string;
   password: string;
@@ -18,6 +22,27 @@ enum EAccountType {
 }
 
 export function FormLogin() {
+  const handleSubmit = async (data: Login) => {
+    try {
+      const dataBody = {
+        email: data.email,
+        // password: data.password,
+      };
+
+      const JSONdata = JSON.stringify(dataBody);
+
+      const response = await fetch("http://localhost:8080", {
+        method: "GET",
+      });
+
+      const result = await response.json();
+      console.log(result);
+      // push("/pages/profile");
+    } catch (err) {
+      alert("N achei nenhum usuario");
+    }
+  };
+
   return (
     <Formik
       validateOnChange={false}
@@ -27,7 +52,7 @@ export function FormLogin() {
         password: "",
       }}
       onSubmit={async (values) => {
-        // createAccount(values);
+        handleSubmit(values);
       }}
       validationSchema={yup.object({
         email: yup.string().email().required("Email obrigatorio"),
@@ -86,20 +111,14 @@ export function FormCreateAccount() {
 
       const JSONdata = JSON.stringify(dataBody);
 
-      const endpoint = "https://viacep.com.br/ws/38413354/json/";
+      const response = await fetch("http://localhost:8080", {
+        method: "POST",
+        body: JSONdata,
+      });
 
-      const options = {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        // body: JSONdata,
-      };
-
-      // const response = await fetch(endpoint, options);
-
-      // const result = await response.json();
-      push("/pages/profile");
+      const result = await response.json();
+      console.log(result);
+      // push("/pages/profile");
     } catch (err) {
       alert("deu n mano");
     }
