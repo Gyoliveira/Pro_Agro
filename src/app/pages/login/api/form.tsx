@@ -7,8 +7,8 @@ import FormField from "../components/FormField";
 import { redirect, useRouter } from "next/navigation";
 
 interface Login {
-  email: string,
-  password: string,
+  email: string;
+  password: string;
 }
 interface Account {
   email: string;
@@ -31,9 +31,12 @@ export function FormLogin() {
 
       const JSONdata = JSON.stringify(dataBody);
 
-      const response = await fetch("http://localhost:8080", {
-        method: "GET",
-      });
+      const response = await fetch(
+        `http://localhost:8080/cadastro/email/` + data.email,
+        {
+          method: "GET",
+        }
+      );
 
       const result = await response.json();
       console.log(result);
@@ -75,6 +78,14 @@ export function FormLogin() {
             id="password"
             error={errors.password}
           />
+          <div className="mb-8  flex flex-row justify-center">
+            <button
+              type="submit"
+              className="bg-gradient-to-r from-primary-default to-primary-light w-48 py-2 rounded-full"
+            >
+              <span>Entrar</span>
+            </button>
+          </div>
         </Form>
       )}
     </Formik>
@@ -103,11 +114,10 @@ export function FormCreateAccount() {
         typeAccount: !enabled ? 0 : 1,
       };
 
-      
       const JSONdata = JSON.stringify(dataBody);
-      console.log(JSONdata)
+      console.log(JSONdata);
 
-      const response = await fetch("http://localhost:8080", {
+      const response = await fetch("http://localhost:8080/cadastro", {
         method: "POST",
         body: JSONdata,
       });

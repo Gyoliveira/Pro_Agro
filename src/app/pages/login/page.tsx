@@ -3,7 +3,7 @@ import { useState } from "react";
 import Link from "next/link";
 
 import Input from "../../components/Input";
-import { FormCreateAccount } from "./api/form";
+import { FormCreateAccount, FormLogin } from "./api/form";
 
 export default function Login() {
   const [createAccount, setCreateAccount] = useState(false);
@@ -62,23 +62,7 @@ export default function Login() {
               Faça login aqui se você ja tem uma conta
             </span>
 
-            <Input placeholder="Email" type="email" />
-            <Input placeholder="Senha" type="password" />
-            <div className="flex flex-row justify-between mb-12">
-              <div>
-                <input type="checkbox" />
-                <span>Lembrar-me</span>
-              </div>
-              <a>Esqueci minha senha</a>
-            </div>
-
-            <div className="mb-8 flex flex-row justify-center">
-              <Link href="/pages/profile">
-                <button className="bg-gradient-to-r from-primary-default to-primary-light w-48 py-2 rounded-full">
-                  <span>Entrar</span>
-                </button>
-              </Link>
-            </div>
+            <FormLogin />
 
             <div className="flex flex-row justify-center">
               <span>ou</span>
