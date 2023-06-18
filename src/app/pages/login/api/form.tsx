@@ -86,20 +86,15 @@ export function FormCreateAccount() {
 
       const JSONdata = JSON.stringify(dataBody);
 
-      const endpoint = "https://viacep.com.br/ws/38413354/json/";
-
-      const options = {
+      const response = await fetch(`https://viacep.com.br/ws/38413354/json/`,
+      {
         method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        // body: JSONdata,
-      };
+        body: JSONdata
+      });
 
-      // const response = await fetch(endpoint, options);
+      const result = await response.json();
 
-      // const result = await response.json();
-      push("/pages/profile");
+      await push("/pages/profile");
     } catch (err) {
       alert("deu n mano");
     }
