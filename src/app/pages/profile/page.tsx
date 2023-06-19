@@ -95,11 +95,11 @@ export default function Profile() {
         </div>
       </div>
       <div className=" flex min-w-4/5 p-5 px-20">
-        <div className="grid grid-cols-3 gap-10 py-16 text-text-default">
+        <div className="grid grid-cols-3 gap-10 py-16">
           <Input placeholder="Nome" type="text" color="text-text-default"/>
           <Input placeholder="Sobrenome" type="text" color="text-text-default"/>
           <Input placeholder="Nome Social" type="text" color="text-text-default"/>
-          <Input placeholder="Genero" type="text" color="text-text-default"/>
+          <Input placeholder="Gênero" type="text" color="text-text-default"/>
           <Input placeholder="CPF" type="text" color="text-text-default"/>
           <Input placeholder="Data de Nascimento" type="date" color="text-text-default"/>
           <Input placeholder="Celular" type="text" color="text-text-default"/>

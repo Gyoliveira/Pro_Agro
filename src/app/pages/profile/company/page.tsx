@@ -84,15 +84,14 @@ export default function ProfileCompany() {
                 </div>
             </div>
             <div className=" flex min-w-4/5 p-5 px-20">
-                <div className="flex flex-row justify-around pt-28">
-                    <div>
-                        <Input placeholder="CNPJ" type="text" />
-                        <Input placeholder="Razão Social" type="text" />
-                        <Input placeholder="Nome Fantasia" type="text" />
-                        <br></br>
-                        <label>Ramo de Atuação</label>
-                        <br></br>
-                        <select id="ramo de atuação">
+                <div className="grid grid-cols-3 gap-10 py-16">
+                    <Input placeholder="CNPJ" type="text" color="text-text-default" />
+                    <Input placeholder="Razão Social" type="text" color="text-text-default" />
+                    <Input placeholder="Nome Fantasia" type="text" color="text-text-default" />
+                    <div className="flex flex-col ">
+                        <label className="mb-4">Ramo de Atuação</label>
+
+                        <select id="ramo de atuação" className="block py-2.5 px-0 w-full text-sm text-text-default bg-transparent border-0 border-b-2 border-gray-200 appearance-none  dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer">
                             <option selected value="">Selecione</option>
                             <option>Agricultura</option>
                             <option>Avicultura</option>
@@ -106,29 +105,29 @@ export default function ProfileCompany() {
                             <option>Suinocultura</option>
                         </select>
                     </div>
-                    <div>
-                        <Input placeholder="Possui Inscrição Estadual?" type="text" />
-                        <Input placeholder="Telefone Fixo" type="text" />
-                        <Input placeholder="Situação Cadastral" type="file" />
-                        <Input placeholder="Telefone Fixo" type="text" />
-                    </div>
-                    <div>
-                        <Input placeholder="Senha Atual" type="password" />
-                        <Input placeholder="Nova Senha" type="password" />
-                        <Input placeholder="Confirmação de Senha" type="text" />
-                        <button className="text-text-light mt-10 bg-gradient-to-r from-primary-default to-primary-light w-48 py-2 rounded-full">
-                            <span>Confirmar</span>
-                        </button>
-                    </div>
+                    <Input placeholder="Possui Inscrição Estadual?" type="text" color="text-text-default" />
+                    <Input placeholder="Telefone Fixo" type="text" color="text-text-default" />
+                    <Input placeholder="Situação Cadastral" type="file" color="text-text-default" />
+                    <Input placeholder="Telefone Fixo" type="text" color="text-text-default" />
+                    <Input placeholder="Senha Atual" type="password" color="text-text-default" />
+                    <Input placeholder="Nova Senha" type="password" color="text-text-default" />
+                    <Input placeholder="Confirmação de Senha" type="text" color="text-text-default" />
                 </div>
 
                 <div className="absolute bottom-5">
-                    <button onClick={() => getCepData('38413354')} className="bg-warning w-48 py-2 rounded-full text-text-light">
+                    <button
+                        onClick={() => getCepData("38413354")}
+                        className="bg-warning w-48 py-2 rounded-full text-text-light mr-10"
+                    >
                         <span>Deletar Conta</span>
                     </button>
+                    <button className="text-text-light mt-10 bg-gradient-to-r from-primary-default to-primary-light w-48 py-2 rounded-full">
+                        <span>Confirmar</span>
+                    </button>
                 </div>
-
             </div>
+
+
 
         </main>
     )
