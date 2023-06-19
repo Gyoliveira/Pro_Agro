@@ -84,52 +84,54 @@ export default function ProfileCompany() {
                     </Link>
                 </div>
             </div>
+
             <div className=" flex min-w-4/5 p-5 px-20">
-                <div className="flex flex-row justify-around pt-28">
-                    <div>
-                        <Input placeholder="Endereço" type="text" />
-                        <Input placeholder="Número Da Residência" type="text" />
-                        <Input placeholder="Complemento (Opcional)" type="text" />
-                        <Input placeholder="Bairro" type="text" />
-                    </div>
-                    <div>
-                        <Input placeholder="CEP" type="text" />
-                        <Input placeholder="País/Região" type="text" />
-                        <Input placeholder="Ponto de Referência" type="text" />
-                        <br></br>
-                        <label>Selecione o Tipo de Propriedade</label>
-                        <br></br>
-                        <select id="selecione o tipo de propriedade">
-                            <option selected value="">Selecione</option>
+                <div className="grid grid-cols-3 gap-10 py-16">
+                    <Input placeholder="Endereço" type="text" color="text-text-default" />
+                    <Input placeholder="Número Da Residência" type="text" color="text-text-default" />
+                    <Input placeholder="Complemento (Opcional)" type="text" color="text-text-default" />
+                    <Input placeholder="Bairro" type="text" color="text-text-default" />
+                    <Input placeholder="CEP" type="text" color="text-text-default" />
+                    <Input placeholder="País/Região" type="text" color="text-text-default" />
+                    <Input placeholder="Ponto de Referência" type="text" color="text-text-default" />
+
+                    <div className="flex flex-col">
+
+                        <label className="mb-4">Selecione o Tipo de Propriedade</label>
+
+                        <select id="underline_select" className="block py-2.5 px-0 w-full text-sm text-text-default bg-transparent border-0 border-b-2 border-gray-200 appearance-none  dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer">
+                        <option selected value="">Selecione</option>
                             <option>Empresa de Implementos</option>
                             <option>Empresa de Insumos</option>
                             <option>Fazenda</option>
                         </select>
+                        {/* <select id="selecione o tipo de propriedade">
+                            <option selected value="">Selecione</option>
+                            <option>Empresa de Implementos</option>
+                            <option>Empresa de Insumos</option>
+                            <option>Fazenda</option>
+                        </select> */}
                     </div>
-                    <div>
-                        <Input placeholder="Cidade" type="text" />
-                        <Input placeholder="Estado" type="text" />
-                        {/* <Input placeholder="Tornar este meu endereço padrão" type="Checkbox" /> */}
-                        <div className="flex mb-5 ">
-                        <input  type ="checkbox" value="" id= "checkboxDefault" />
-                        <label>Tornar este meu endereço padrão</label>
-                        </div>
-                        
-
-                        <button className="text-text-light mt-10 bg-gradient-to-r from-primary-default to-primary-light w-48 py-2 rounded-full">
-                            <span>Confirmar</span>
-                        </button>
+                    <Input placeholder="Cidade" type="text" color="text-text-default" />
+                    <Input placeholder="Estado" type="text" color="text-text-default" />
+                    <div className="mt-16 mr-8">
+                        <input type="checkbox" value="" id="checkboxDefault" />
+                        <label className="relative float-right ">Tornar este meu endereço padrão</label>
                     </div>
                 </div>
 
                 <div className="absolute bottom-5">
-                    <button onClick={() => getCepData('38413354')} className="bg-warning w-48 py-2 rounded-full text-text-light">
+                    <button
+                        onClick={() => getCepData("38413354")}
+                        className="bg-warning w-48 py-2 rounded-full text-text-light mr-10"
+                    >
                         <span>Deletar Conta</span>
                     </button>
+                    <button className="text-text-light mt-10 bg-gradient-to-r from-primary-default to-primary-light w-48 py-2 rounded-full">
+                        <span>Confirmar</span>
+                    </button>
                 </div>
-
             </div>
-
         </main>
     )
 }
