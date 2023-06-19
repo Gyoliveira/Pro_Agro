@@ -12,6 +12,9 @@ module.exports = {
       '4/5': '80vw',
     },
     extend: {
+      minHeight: {
+        '80vh': '90vh',
+      },
       width: {
         '5vw': '5vw',
         '15vw': '15vw',

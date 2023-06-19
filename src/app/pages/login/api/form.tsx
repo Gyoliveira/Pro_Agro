@@ -22,25 +22,27 @@ enum EAccountType {
 }
 
 export function FormLogin() {
+  const { push } = useRouter();
+
   const handleSubmit = async (data: Login) => {
     try {
-      const dataBody = {
-        email: data.email,
-        // password: data.password,
-      };
+      // const dataBody = {
+      //   email: data.email,
+      //   // password: data.password,
+      // };
 
-      const JSONdata = JSON.stringify(dataBody);
+      // const JSONdata = JSON.stringify(dataBody);
 
-      const response = await fetch(
-        `http://localhost:8080/cadastro/email/` + data.email,
-        {
-          method: "GET",
-        }
-      );
+      // const response = await fetch(
+      //   `http://localhost:8080/cadastro/email/` + data.email,
+      //   {
+      //     method: "GET",
+      //   }
+      // );
 
-      const result = await response.json();
-      console.log(result);
-      // push("/pages/profile");
+      // const result = await response.json();
+      // console.log(result);
+      push("/pages/signed/dashboard");
     } catch (err) {
       alert("N achei nenhum usuario");
     }
@@ -111,7 +113,7 @@ export function FormCreateAccount() {
       const dataBody = {
         email: data.email,
         password: data.password,
-        typeAccount: !enabled ? 0 : 1,
+        typeAccount: !enabled ? 1 : 2,
       };
 
       const JSONdata = JSON.stringify(dataBody);
@@ -124,7 +126,11 @@ export function FormCreateAccount() {
 
       const result = await response.json();
       console.log(result);
-      // push("/pages/profile");
+      push({
+        pathname: "/pages/signed/profile/freelancer",
+        query: { email: data.email },
+      }, "/pages/signed/profile/freelancer");
+      
     } catch (err) {
       alert("deu n mano");
     }

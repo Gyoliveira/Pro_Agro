@@ -1,26 +1,26 @@
 "use client";
 
-import { IPAGEDATA_INFO } from "@/app/constants/LateralBar.i";
+import { IPAGEDATA_INFO, IPAGE_INFO } from "@/app/constants/LateralBar.i";
 import { usePathname, useRouter } from "next/navigation";
 
 interface Prop {
   title: string | undefined;
-  data: IPAGEDATA_INFO[] | undefined;
+  data: IPAGE_INFO[] | undefined;
 }
 
 export default function Pages({ title, data }: Prop) {
   const router = usePathname();
   const { push } = useRouter();
 
-  const saveStorage = (name: string) => {
-    localStorage.setItem("userDataNavPage", name);
-  }
+  const saveStorage = async (name?: string) => {
+    await localStorage.setItem("userDataNavPage",  name!);
+  };
 
-  const sendToPage = ({route, name}: IPAGEDATA_INFO) => {
+  const sendToPage = async({ route, name }: IPAGE_INFO) => {
     const navPrefix = "/pages/signed/" + route;
-    saveStorage(name)
+    saveStorage(name);
     push(navPrefix);
-  }
+  };
 
   const renderMainIcons = () => {
     return data?.map((item) => (

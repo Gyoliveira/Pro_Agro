@@ -11,9 +11,9 @@ import { IPAGEDATA_INFO } from "@/app/constants/LateralBar.i";
 export default function NavBar() {
   const [selectPage, setSelectPage] = useState<IPAGEDATA_INFO>();
 
-  const handleSelectPage = (data: any) => {
+  const handleSelectPage = async (data: any) => {
+    await localStorage.setItem("userDataNav", JSON.stringify(data));
     setSelectPage(data);
-    localStorage.setItem("userDataNav", JSON.stringify(data));
   };
 
   const renderMainIcons = () => {
@@ -42,6 +42,7 @@ export default function NavBar() {
   useEffect(() => {
     const navData = JSON.parse(localStorage.getItem("userDataNav")!);
     setSelectPage(navData)
+    console.log(navData)
   }, []);
 
   return (

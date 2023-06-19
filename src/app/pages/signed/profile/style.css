@@ -4,5 +4,5 @@
 
 input:focus ~ .input-text,
 input:not(:placeholder-shown) ~ .input-text{
-  @apply text-primary-dark transform -translate-y-10 -translate-x-2 scale-75;
+  @apply text-primary-dark transform -translate-y-5 -translate-x-2 scale-75;
 }

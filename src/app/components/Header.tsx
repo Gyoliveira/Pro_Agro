@@ -15,7 +15,7 @@ export default function Header() {
   return (
     <div className="flex flex-row justify-around relative w-full h-28 items-center text-text-light mb-30vh">
       <div >
-        <Image src="/img/logo/logoLight.svg" width={50} height={50} alt="logo"/>
+        <Image src="/img/logo/logoLight.png" width={50} height={50} alt="logo"/>
       </div>
       <div className="flex flex-row justify-around w-1/4">
         <Link href="/">
