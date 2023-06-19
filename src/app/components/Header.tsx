@@ -6,8 +6,6 @@ import { useRouter, usePathname, useSearchParams } from "next/navigation";
 export default function Header() {
   const router = usePathname();
 
-  console.log(router);
-
   const routerSelect =
     "text-primary-light font-semibold text-lg border-b-2 border-primary-focused";
 
