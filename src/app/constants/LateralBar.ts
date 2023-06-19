@@ -8,7 +8,11 @@ const PAGES_INFO = {
       pages: [
         {
           name: "Inicio",
-          route: "",
+          route: "dashboard",
+        },
+        {
+          name: "Test2",
+          route: "aa",
         },
       ],
     },
@@ -20,7 +24,7 @@ const PAGES_INFO = {
       pages: [
         {
           name: "Meus dados",
-          route: "",
+          route: "profile/freelancer",
         },
       ],
     },
@@ -32,7 +36,7 @@ const PAGES_INFO = {
       pages: [
         {
           name: "Endereço",
-          route: "",
+          route: "locale",
         },
       ],
     },
@@ -53,11 +57,11 @@ const PAGES_INFO = {
       pages: [
         {
           name: "Alterar senha",
-          route: "",
+          route: "changePassword",
         },
         {
           name: "Excluir conta",
-          route: "",
+          route: "deleteAccount",
         },
       ],
     },
