@@ -26,12 +26,12 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     <main className="flex flex-row min-h-screen">
       <NavBar />
       <div className="
-      flex flex-col">
+      flex flex-1 flex-col">
         <div className="flex flex-row py-5 px-10">
-          <h1>Icon</h1>
-          <h1>NameTela</h1>
+          {/* <h1>Icon</h1>
+          <h1>NameTela</h1> */}
         </div>
-        <div className="flex flex-1 flex-col pt-5 pl-10">{children}</div>
+        <div className="flex flex-1 flex-col pt-5 pl-10 ">{children}</div>
       </div>
     </main>
     //   </body>

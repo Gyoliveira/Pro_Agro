@@ -4,10 +4,11 @@ import "../style.css";
 import Input from "../components/Input";
 import Link from "next/link";
 import Selection from "../components/Selection";
-import { Form, Formik } from "formik";
+import { Field, Form, Formik } from "formik";
 import * as yup from "yup";
 import { useRouter } from "next/router";
-import { useParams } from 'next/navigation';
+import { useParams } from "next/navigation";
+import { useEffect, useState } from "react";
 
 type User = {
   id: number;
@@ -25,23 +26,18 @@ type User = {
 };
 
 export default function ProfileFreelancer(props: any) {
+  const [userDate, setUserDataStorage] = useState({
+    cpf: '',
+    name: '',
+    lastName: '',
+    gender: '',
+    phone: '',
+  });
   const paramEmail = props.searchParams.email;
-
-  const router = useRouter();
 
   const imageStyle = {
     borderRadius: "40%",
   };
-
-  // const getCepData = async (cep: string) => {
-  //   try {
-  //     const res = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
-  //     const data = await res.json();
-  //     console.log(data);
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // };
 
   const updateMyAccount = async () => {
     try {
@@ -75,8 +71,7 @@ export default function ProfileFreelancer(props: any) {
         phone: data.phone,
         oldPassword: data.oldPassword,
         newPassword: data.newPassword,
-      }
-      
+      };
 
       const JSONdata = JSON.stringify(dataBody);
       console.log(JSONdata);
@@ -94,19 +89,28 @@ export default function ProfileFreelancer(props: any) {
     }
   };
 
+  useEffect(() => {
+    return () => {
+      const data = JSON.parse(localStorage.getItem("user")!);
+
+      setUserDataStorage(data);
+    };
+  }, []);
+
   return (
     <Formik
       validateOnChange={false}
       validateOnBlur={false}
       initialValues={{
-        cpf: "",
-        name: "",
-        lastName: "",
-        dataBirth: Date,
-        gender: "",
-        phone: "",
+        cpf: userDate?.cpf,
+        name: userDate?.name,
+        lastName: userDate?.lastName,
+        dataBirth: "2001-01-01",
+        gender: userDate?.gender,
+        phone: userDate?.phone,
         oldPassword: "",
         newPassword: "",
+        passwordConfirm: "",
       }}
       onSubmit={async (values) => {
         handleSubmit(values);
@@ -119,12 +123,17 @@ export default function ProfileFreelancer(props: any) {
         phone: yup.string().required("Contato obrigatorio"),
         oldPassword: yup.string().trim().required("Senha obrigatorio"),
         newPassword: yup.string().trim().required("Senha obrigatorio"),
+        passwordConfirm: yup
+          .string()
+          .label("confirm password")
+          .required("Senha obrigatorio")
+          .oneOf([yup.ref("newPassword"), null], "Senhas não conferem"),
       })}
     >
       {({ errors, touched }) => (
         <Form>
           <div className="flex min-h-80vh flex-row bg-slate-100">
-            <div className=" flex min-w-4/5 p-5 px-20">
+            <div className=" flex flex-col p-5">
               <div className="grid grid-cols-3 gap-16 py-16 text-text-default">
                 <Input
                   placeholder="Nome"
@@ -140,11 +149,21 @@ export default function ProfileFreelancer(props: any) {
                   name="lastName"
                   error={errors.lastName}
                 />
-                {/* <Input
-                  placeholder="Genero"
-                  type="text"
-                  color="text-text-default"
-                /> */}
+                <div>
+                  <span className="text-base text-text-default text-opacity-80 relative px-1 transition duration-200 input-text">
+                    Gênero
+                  </span>
+                  <Field
+                    as="select"
+                    name="gender"
+                    className="h-14 w-50 px-6 pt-5 text-base text-black bg-transparent border-text-default border-b-2 rounded-sm border-opacity-50 outline-none focus:border-primary-default placeholder-gray-300 placeholder-opacity-0 transition duration-200"
+                  >
+                    <option value="0">MASCULINO</option>
+                    <option value="1">FEMININO</option>
+                    <option value="2">OUTROS</option>
+                    <option value="3">PREFIRO NÃO DIVULGAR</option>
+                  </Field>
+                </div>
                 <Input
                   placeholder="CPF"
                   type="text"
@@ -178,25 +197,21 @@ export default function ProfileFreelancer(props: any) {
                   name="newPassword"
                   error={errors.newPassword}
                 />
-                {/* <Input
+                <Input
                   placeholder="Confirmação de Senha"
                   type="text"
                   color="text-text-default"
-                /> */}
-                <div className="">
-                  <button
-                    type="submit"
-                    className="text-text-light mt-10 bg-gradient-to-r from-primary-default to-primary-light w-48 py-2 rounded-full"
-                  >
-                    <span>Confirmar</span>
-                  </button>
-                  {/* <button
-                    onClick={() => getCepData("38413354")}
-                    className="bg-warning w-48 py-2 rounded-full text-text-light"
-                  >
-                    <span>Deletar Conta</span>
-                  </button> */}
-                </div>
+                  name="passwordConfirm"
+                  error={errors.passwordConfirm}
+                />
+              </div>
+              <div className="flex flex-row justify-end">
+                <button
+                  type="submit"
+                  className="text-text-light mt-10 bg-gradient-to-r from-primary-default to-primary-light w-48 py-2 rounded-full"
+                >
+                  <span>Confidrmar</span>
+                </button>
               </div>
             </div>
           </div>

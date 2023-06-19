@@ -29,7 +29,12 @@ export default function NavBar() {
 
   const renderSubIcons = () => {
     return PAGES_INFO.sub_items.map((item) => (
-      <Icon key={item.name} nameIcon={item.iconName} />
+      <Icon
+        key={item.name}
+        nameIcon={item.iconName}
+        isSelected={item.name === selectPage?.name}
+        onFunction={() => handleSelectPage(item)}
+      />
     ));
   };
 
@@ -41,8 +46,8 @@ export default function NavBar() {
 
   useEffect(() => {
     const navData = JSON.parse(localStorage.getItem("userDataNav")!);
-    setSelectPage(navData)
-    console.log(navData)
+    setSelectPage(navData);
+    console.log(navData);
   }, []);
 
   return (

@@ -57,11 +57,11 @@ const PAGES_INFO = {
       pages: [
         {
           name: "Alterar senha",
-          route: "changePassword",
+          route: "settings/changePassword",
         },
         {
           name: "Excluir conta",
-          route: "deleteAccount",
+          route: "settings/deleteAccount",
         },
       ],
     },

@@ -64,9 +64,9 @@ export default function Login() {
 
             <FormLogin />
 
-            <div className="flex flex-row justify-center">
+            {/* <div className="flex flex-row justify-center">
               <span>ou</span>
-            </div>
+            </div> */}
           </>
         )}
       </div>
@@ -99,9 +99,9 @@ export default function Login() {
             </form> */}
             <FormCreateAccount />
 
-            <div className="flex flex-row justify-center">
+            {/* <div className="flex flex-row justify-center">
               <span>ou</span>
-            </div>
+            </div> */}
           </>
         )}
       </div>

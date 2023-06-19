@@ -4,7 +4,7 @@ import Toggle from "../components/Toggle";
 import { useFormik, Form, Formik, useFormikContext } from "formik";
 import * as yup from "yup";
 import FormField from "../components/FormField";
-import { useRouter } from 'next/navigation';
+import { useRouter } from "next/navigation";
 interface Login {
   email: string;
   password: string;
@@ -22,29 +22,38 @@ enum EAccountType {
 
 export function FormLogin() {
   const router = useRouter();
+  const [errorLogin, setErrorLogin] = useState("");
 
   const handleSubmit = async (data: Login) => {
     try {
-      // const dataBody = {
-      //   email: data.email,
-      //   // password: data.password,
-      // };
+      setErrorLogin("");
+      const dataBody = {
+        email: data.email,
+        // password: data.password,
+      };
 
-      // const JSONdata = JSON.stringify(dataBody);
+      const JSONdata = JSON.stringify(dataBody);
 
-      // const response = await fetch(
-      //   `http://localhost:8080/cadastro/email/` + data.email,
-      //   {
-      //     method: "GET",
-      //   }
-      // );
+      const response = await fetch(
+        `http://localhost:8080/usuarios/` + data.email,
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+            "Access-Control-Allow-Headers": "Content-Type, Authorization",
+          },
+        }
+      );
 
-      // const result = await response.json();
-      // console.log(result);
-      let email = 'markus@gmail.com'
-      router.push(`/pages/signed/dashboard?email=${email}`);
+      const result = await response.json();
+      console.log(result);
+      await localStorage.setItem("user", JSON.stringify(result));
+
+      router.push(`/pages/signed/profile/freelancer/?email=${data.email}`);
     } catch (err) {
-      alert("N achei nenhum usuario");
+      setErrorLogin("Email não encontrado");
     }
   };
 
@@ -80,6 +89,8 @@ export function FormLogin() {
             id="password"
             error={errors.password}
           />
+          <h1 className="text-warning text-center my-5">{errorLogin}</h1>
+
           <div className="mb-8  flex flex-row justify-center">
             <button
               type="submit"
@@ -95,6 +106,8 @@ export function FormLogin() {
 }
 
 export function FormCreateAccount() {
+  const [errorRegister, setErrorRegister] = useState("");
+
   const router = useRouter();
 
   const [isToggle, setIsToggle] = useState(false);
@@ -119,25 +132,26 @@ export function FormCreateAccount() {
       const JSONdata = JSON.stringify(dataBody);
       console.log(JSONdata);
 
+      // PUT usuarios/id
+      // DELETE usuarios/id
+
       const response = await fetch("http://localhost:8080/cadastro", {
         method: "POST",
         body: JSONdata,
         headers: {
           "Content-Type": "application/json",
-          'Access-Control-Allow-Origin': '*',
-          'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
-          'Access-Control-Allow-Headers': 'Content-Type, Authorization',
-        }
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+          "Access-Control-Allow-Headers": "Content-Type, Authorization",
+        },
       });
 
       const result = await response.json();
       console.log(result);
-      // push(`/pages/signed/profile/${data.email}/freelancer/`);
 
       router.push(`/pages/signed/profile/freelancer/?email=${data.email}`);
-
     } catch (err) {
-      alert("deu n mano");
+      setErrorRegister("Este email ja esta sendo utilizado")
     }
   };
 
@@ -156,7 +170,11 @@ export function FormCreateAccount() {
       validationSchema={yup.object({
         email: yup.string().email().required("Email obrigatorio"),
         password: yup.string().trim().required("Senha obrigatorio"),
-        passwordConfirm: yup.string().trim().required("As senhas não conferem"),
+        passwordConfirm: yup
+          .string()
+          .label("confirm password")
+          .required("Senha obrigatorio")
+          .oneOf([yup.ref("password"), null], "Senhas não conferem"),
       })}
     >
       {({ errors, touched }) => (
@@ -196,6 +214,7 @@ export function FormCreateAccount() {
               Sou Empresa
             </span>
           </div>
+          <h1 className="text-warning text-center my-5">{errorRegister}</h1>
 
           <div className="mb-8  flex flex-row justify-center">
             <button
