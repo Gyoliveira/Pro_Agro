@@ -4,8 +4,7 @@ import Toggle from "../components/Toggle";
 import { useFormik, Form, Formik, useFormikContext } from "formik";
 import * as yup from "yup";
 import FormField from "../components/FormField";
-import { redirect, useRouter } from "next/navigation";
-
+import { useRouter } from 'next/navigation';
 interface Login {
   email: string;
   password: string;
@@ -22,7 +21,7 @@ enum EAccountType {
 }
 
 export function FormLogin() {
-  const { push } = useRouter();
+  const router = useRouter();
 
   const handleSubmit = async (data: Login) => {
     try {
@@ -42,7 +41,8 @@ export function FormLogin() {
 
       // const result = await response.json();
       // console.log(result);
-      push("/pages/signed/dashboard");
+      let email = 'markus@gmail.com'
+      router.push(`/pages/signed/dashboard?email=${email}`);
     } catch (err) {
       alert("N achei nenhum usuario");
     }
@@ -95,7 +95,7 @@ export function FormLogin() {
 }
 
 export function FormCreateAccount() {
-  const { push } = useRouter();
+  const router = useRouter();
 
   const [isToggle, setIsToggle] = useState(false);
 
@@ -122,15 +122,20 @@ export function FormCreateAccount() {
       const response = await fetch("http://localhost:8080/cadastro", {
         method: "POST",
         body: JSONdata,
+        headers: {
+          "Content-Type": "application/json",
+          'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
+          'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+        }
       });
 
       const result = await response.json();
       console.log(result);
-      push({
-        pathname: "/pages/signed/profile/freelancer",
-        query: { email: data.email },
-      }, "/pages/signed/profile/freelancer");
-      
+      // push(`/pages/signed/profile/${data.email}/freelancer/`);
+
+      router.push(`/pages/signed/profile/freelancer/?email=${data.email}`);
+
     } catch (err) {
       alert("deu n mano");
     }

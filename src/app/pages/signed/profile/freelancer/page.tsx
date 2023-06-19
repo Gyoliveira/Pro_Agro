@@ -7,6 +7,7 @@ import Selection from "../components/Selection";
 import { Form, Formik } from "formik";
 import * as yup from "yup";
 import { useRouter } from "next/router";
+import { useParams } from 'next/navigation';
 
 type User = {
   id: number;
@@ -23,22 +24,24 @@ type User = {
   confirmarSenha?: string;
 };
 
-export default function ProfileFreelancer(props) {
+export default function ProfileFreelancer(props: any) {
+  const paramEmail = props.searchParams.email;
+
   const router = useRouter();
 
   const imageStyle = {
     borderRadius: "40%",
   };
 
-  const getCepData = async (cep: string) => {
-    try {
-      const res = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
-      const data = await res.json();
-      console.log(data);
-    } catch (err) {
-      console.log(err);
-    }
-  };
+  // const getCepData = async (cep: string) => {
+  //   try {
+  //     const res = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
+  //     const data = await res.json();
+  //     console.log(data);
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // };
 
   const updateMyAccount = async () => {
     try {
@@ -63,7 +66,7 @@ export default function ProfileFreelancer(props) {
   const handleSubmit = async (data: any) => {
     try {
       const dataBody = {
-        email: router?.query?.email,
+        email: paramEmail,
         cpf: data.cpf,
         name: data.name,
         lastName: data.lastName,
