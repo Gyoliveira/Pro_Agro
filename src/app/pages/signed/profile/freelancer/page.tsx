@@ -33,7 +33,8 @@ export default function ProfileFreelancer(props: any) {
     gender: '',
     phone: '',
   });
-  const paramEmail = props.searchParams.email;
+  const router = useRouter();
+  const { email } = router.query;
 
   const imageStyle = {
     borderRadius: "40%",
@@ -62,7 +63,7 @@ export default function ProfileFreelancer(props: any) {
   const handleSubmit = async (data: any) => {
     try {
       const dataBody = {
-        email: paramEmail,
+        email: email,
         cpf: data.cpf,
         name: data.name,
         lastName: data.lastName,

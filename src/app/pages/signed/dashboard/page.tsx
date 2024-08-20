@@ -1,13 +1,13 @@
 "use client";
 
 import React from "react";
-import { useParams, usePathname, useSearchParams } from "next/navigation";
+import { useRouter } from "next/router";
 import NavBar from "@/app/components/navBar/page";
 
 export default function Dashboard(props: any){
-    const paramEmail = props.searchParams.email;
-
+    const router = useRouter();
+    const { email } = router.query;
     return(
-        <h1>{paramEmail}</h1>
+        <h1>{email}</h1>
     )
 }
