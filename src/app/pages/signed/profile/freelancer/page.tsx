@@ -127,7 +127,7 @@ export default function ProfileFreelancer(props: any) {
           .string()
           .label("confirm password")
           .required("Senha obrigatorio")
-          .oneOf([yup.ref("newPassword"), null], "Senhas não conferem"),
+          .oneOf([yup.ref("newPassword"), ""], "Senhas não conferem"),
       })}
     >
       {({ errors, touched }) => (
