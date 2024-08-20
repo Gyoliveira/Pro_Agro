@@ -7,7 +7,7 @@ import * as yup from "yup";
 import { useRouter } from "next/router";
 import { useParams } from "next/navigation";
 
-export default function deleteAccount() {
+export default function DeleteAccount() {
   const [userDate, setUserDataStorage] = useState({
     id: 0,
     cpf: "",
