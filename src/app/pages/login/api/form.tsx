@@ -174,7 +174,7 @@ export function FormCreateAccount() {
           .string()
           .label("confirm password")
           .required("Senha obrigatorio")
-          .oneOf([yup.ref("password"), null], "Senhas não conferem"),
+          .oneOf([yup.ref("password"), ""], "Senhas não conferem"),
       })}
     >
       {({ errors, touched }) => (
