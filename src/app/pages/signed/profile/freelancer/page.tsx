@@ -6,7 +6,6 @@ import Link from "next/link";
 import Selection from "../components/Selection";
 import { Field, Form, Formik } from "formik";
 import * as yup from "yup";
-import { useRouter } from "next/router";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
@@ -33,8 +32,7 @@ export default function ProfileFreelancer(props: any) {
     gender: '',
     phone: '',
   });
-  const router = useRouter();
-  const { email } = router.query;
+  const email  = "router.query";
 
   const imageStyle = {
     borderRadius: "40%",
